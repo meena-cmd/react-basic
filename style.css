@@ -10,7 +10,8 @@
     justify-content: space-between;
     border:1px solid black;
 height:80px; 
-width:1230px;   
+width:1230px;  
+position:relative;
 
 }
 .logo-container{
@@ -95,4 +96,34 @@ h6{
     margin:5px 0px;
     color:darkslategrey;
     word-wrap: break-word;
+}
+
+.dummycontainer{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.dummycard{
+    width:160px;
+    height:250px;
+    padding:20px;
+    margin:40px;
+    background-color: #f0f0f0;
+}
+.login{
+    margin-left: 20px;
+    border:1px solid #b2bec3;
+    position: fixed;
+    z-index: 1000;
+    top: 10px; /* Adjust as needed */
+  right: 10px;
+ 
+    width: 120px; /* Fixed width */
+    box-sizing: border-box; /* Include padding and borders within width */
+    white-space: nowrap; /* Prevent text wrapping */
+    transition: width 0.3s ease; /* Smooth transition */
+    /* Other button styles */
+  
+  
 }
