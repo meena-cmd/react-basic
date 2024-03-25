@@ -3,7 +3,13 @@ const DummyCardList=()=>{
         <div className="dummycard"></div>
         <div className="dummycard"></div>
         <div className="dummycard"></div>
-
+        <div className="dummycard"></div>
+        <div className="dummycard"></div>
+        <div className="dummycard"></div>
+        <div className="dummycard"></div>
+        <div className="dummycard"></div>
+        <div className="dummycard"></div>
+        
     </div>)
 }
 export default DummyCardList;
