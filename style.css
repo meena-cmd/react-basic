@@ -24,6 +24,7 @@
 }
 .nav-items {
   font-size: 20px;
+  cursor: pointer;
 }
 
 .nav-items > ul {
@@ -110,7 +111,7 @@ h6 {
 .login {
   margin-left: 20px;
   border: 1px solid #b2bec3;
-  
+  cursor: pointer;
   z-index: 1000;
   top: 10px;
   right: 0px;
@@ -120,4 +121,7 @@ h6 {
   white-space: nowrap;
   transition: width 0.3s ease;
   border:3px solid black;
+}
+.menu > ul{
+  list-style: none;
 }
