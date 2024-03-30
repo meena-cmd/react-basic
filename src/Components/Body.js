@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import ResContainer from "./Restaurant";
-import DummyCardList from "./Dummy";
+import DummyCardList from "./DummyCardList";
 import { Link } from "react-router-dom";
-
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 //*whenever state variables update,react triggers a reconciliation cycle(re-renders the component)
 const Body = () => {
@@ -19,7 +19,7 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
     );
 
     const json = await data.json();
@@ -32,7 +32,13 @@ const Body = () => {
     );
   };
 
-  return resList?.length === 0 ? (
+  const onlineStatus=useOnlineStatus()
+if (onlineStatus === false){
+  return(<h1>you are lost in your network</h1>)
+}
+ 
+
+return resList?.length === 0 ? (
     <DummyCardList />
   ) : (
     <div className="body">

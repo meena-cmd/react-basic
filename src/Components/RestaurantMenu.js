@@ -1,30 +1,14 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
+import DummyCardList from "./DummyCardList";
 
 const RestaurantMenu = () => {
-  const [resInfo, setResInfo] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetchmenu();
-  }, []);
   const { resid } = useParams();
+  const resInfo = useRestaurantMenu(resid);
 
-  const fetchmenu = async () => {
-    const menudata = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9351929&lng=77.62448069999999&restaurantId=" +
-        resid +
-        "&catalog_qa=undefined&isMenuUx4=true&submitAction=ENTER"
-    );
-    const json = await menudata.json();
-    setResInfo(json?.data);
-    setLoading(false);
-  };
+  if (resInfo === null) return <DummyCardList />;
 
-  if (loading) {
-    return <div>Loading...</div>; // Render a loading indicator while data is being fetched
-  }
   const { info } = resInfo?.cards[2]?.card?.card;
   const { itemCards } =
     resInfo?.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card;

@@ -125,3 +125,8 @@ h6 {
 .menu > ul{
   list-style: none;
 }
+
+.User_box{
+  border:1px solid firebrick;
+  padding:20px;
+}
